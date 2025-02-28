@@ -1,0 +1,38 @@
+# Импорт необходимых библиотек
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Создание простого DataFrame
+data = {
+    'Имя': ['Иван', 'Мария', 'Алексей', 'Елена', 'Дмитрий'],
+    'Возраст': [23, 25, 30, 22, 28],
+    'Зарплата': [50000, 60000, 55000, 45000, 70000]
+}
+
+df = pd.DataFrame(data)
+
+# Показать первые несколько строк данных
+print("Первые 2 строки данных:")
+print(df.head(2))
+
+# Простая статистика
+print("\nОписание статистики:")
+print(df.describe())
+
+# Простая визуализация данных: гистограмма для зарплаты
+plt.figure(figsize=(8, 6))
+plt.hist(df['Зарплата'], bins=5, color='blue', alpha=0.7)
+plt.title('Гистограмма зарплат')
+plt.xlabel('Зарплата')
+plt.ylabel('Частота')
+plt.grid(True)
+plt.show()
+
+# Расчет средней зарплаты
+average_salary = df['Зарплата'].mean()
+print("\nСредняя зарплата:", average_salary)
+
+# Корреляция между возрастом и зарплатой
+correlation = df['Возраст'].corr(df['Зарплата'])
+print("\nКорреляция между возрастом и зарплатой:", correlation)
